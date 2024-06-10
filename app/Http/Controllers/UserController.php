@@ -50,13 +50,20 @@ class UserController extends Controller
     
         $request->validate([
             'username' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email,'.$user->id,
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
         $user->update($request->password ? $request->all() : $request->except('password'));
         
         return redirect()->route('users.index')->with('success','updated successfully');
+    }
+
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('users.show', compact('user'));
     }
 
     public function destroy(User $user)
