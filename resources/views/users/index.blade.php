@@ -11,7 +11,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th class="border-gray-200">{{ __('Name') }}</th>
+                        <th class="border-gray-200">{{ __('UserName') }}</th>
                         <th class="border-gray-200">{{ __('Email') }}</th>
                         <th class="border-gray-200">{{ __('Action') }}</th>
                     </tr>
@@ -19,7 +19,7 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <td><span class="fw-normal">{{ $user->name }}</span></td>
+                            <td><span class="fw-normal">{{ $user->username }}</span></td>
                             <td><span class="fw-normal">{{ $user->email }}</span></td>
                             <td>
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>

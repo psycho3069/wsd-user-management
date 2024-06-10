@@ -14,10 +14,10 @@
                 @method('PUT')
 
                 <div class ="form-group p-2">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="name"
-                        value="{{ old('name', $user->name) }}">
-                    @error('name')
+                    <label for="username">UserName</label>
+                    <input type="text" id="username" class="form-control @error('username') is-invalid @enderror" name="username"
+                        value="{{ old('username', $user->username) }}">
+                    @error('username')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -31,6 +31,24 @@
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
+                    @enderror
+                </div>
+                <div class ="form-group p-2">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class ="form-group p-2">
+                    <label>Retyped Password</label>
+                    <input type="password" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation">
+                    @error('password_confirmation')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                 </div>
                 <div class ="form-group p-2">
